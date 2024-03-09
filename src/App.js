@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Avatar from "./components/Avatar";
 import { PartList } from "./components/PartList";
+
 const total = {
   body: 17,
   eyes: 17,
@@ -24,6 +25,19 @@ function App() {
   const [clothing3, setClothing3] = useState(0);
   const [mouth, setMouth] = useState(2);
   const [glasses, setGlasses] = useState(2);
+
+  // const [avatar, setAvatar] = useState({
+  //   body: 0,
+  //   eyes: 2,
+  //   eyebrows: 2,
+  //   hair: 0,
+  //   clothing1: 0,
+  //   clothing2: 0,
+  //   clothing3: 0,
+  //   mouth: 2,
+  //   glasses: 2,
+  // }); // Batch update
+
   const randomize = () => {
     setBody(Math.floor(Math.random() * total.body));
     setEyes(Math.floor(Math.random() * total.eyes));
@@ -35,7 +49,23 @@ function App() {
     setClothing1(Math.floor(Math.random() * total.clothing1));
     setClothing2(Math.floor(Math.random() * total.clothing2));
     setClothing3(Math.floor(Math.random() * total.clothing3));
+
+    /// Batch update: v17 , v18
+    // v16
+    // setAvatar(prev => ({
+    //   ...prev,
+    //   body: Math.floor(Math.random() * total.body),
+    //   eyes: Math.floor(Math.random() * total.eyes),
+    // }))
+
   };
+
+  // const onChange = (field) => {
+  //   return (value) => {
+  //     setAvatar(prev => ({ ...prev, [field]: value }))
+  //   }
+  // }
+
   useEffect(() => {
     randomize();
   }, []);
@@ -72,6 +102,7 @@ function App() {
             <PartList
               total={total.body}
               path="body"
+              // set={onChange("body")}
               set={setBody}
               selected={body}
             />
