@@ -9,6 +9,7 @@ export const PartList = ({
   top = "50%",
 }) => {
   let parts = [];
+
   for (let i = 0; i < total; i++) {
     parts.push(
       <div
@@ -28,5 +29,6 @@ export const PartList = ({
       </div>
     );
   }
+
   return <div className="list">{parts}</div>;
 };

@@ -3,6 +3,7 @@ import "./App.css";
 import Avatar from "./components/Avatar";
 import { PartList } from "./components/PartList";
 import { Title } from "./components/Title";
+import useDebounce, { useBody } from "./components/useDebounce";
 
 const total = {
   body: 17,
@@ -17,7 +18,9 @@ const total = {
 };
 
 function App() {
-  const [body, setBody] = useState(0);
+  const { body, onChange } = useBody(0);
+
+
   const [eyes, setEyes] = useState(2);
   const [eyebrows, setEyebrow] = useState(2);
   const [hair, setHair] = useState(0);
@@ -26,6 +29,18 @@ function App() {
   const [clothing3, setClothing3] = useState(0);
   const [mouth, setMouth] = useState(2);
   const [glasses, setGlasses] = useState(2);
+
+
+  const { debounce } = useDebounce(1000);
+
+  debounce(() => {
+    console.log('debounced')
+  })
+
+
+  debounce(() => {
+    console.log('debounced 2')
+  })
 
   // const [avatar, setAvatar] = useState({
   //   body: 0,
@@ -40,7 +55,7 @@ function App() {
   // }); // Batch update
 
   const randomize = () => {
-    setBody(Math.floor(Math.random() * total.body));
+    onChange(Math.floor(Math.random() * total.body));
     setEyes(Math.floor(Math.random() * total.eyes));
     setEyebrow(Math.floor(Math.random() * total.eyebrows));
     setHair(Math.floor(Math.random() * total.hair));
@@ -104,7 +119,7 @@ function App() {
               total={total.body}
               path="body"
               // set={onChange("body")}
-              set={setBody}
+              set={onChange}
               selected={body}
             />
           </div>
