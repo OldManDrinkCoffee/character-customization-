@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Part } from "./Part";
 
 const Avatar = (
@@ -12,9 +12,14 @@ const Avatar = (
     mouth,
     eyebrow,
     glasses,
-  },
-  ref
+  }
 ) => {
+
+
+  useEffect(() => {
+
+  }, [clothing3, clothing2]);
+
   return (
     <div className="avatar">
       <Part path="body" index={body} zIndex={0} />
