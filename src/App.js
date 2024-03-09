@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Avatar from "./components/Avatar";
 import { PartList } from "./components/PartList";
+import { Title } from "./components/Title";
 
 const total = {
   body: 17,
@@ -98,7 +99,7 @@ function App() {
         </div>
         <div>
           <div className="list-section">
-            <h2>Body</h2>
+            <Title>Body</Title>
             <PartList
               total={total.body}
               path="body"
@@ -108,7 +109,7 @@ function App() {
             />
           </div>
           <div className="list-section">
-            <h2>Eyes</h2>
+            <Title>Eyes</Title>
             <PartList
               total={total.eyes}
               path="eyes"
@@ -119,7 +120,7 @@ function App() {
             />
           </div>
           <div className="list-section">
-            <h2>Hair</h2>
+            <Title>Hair</Title>
             <PartList
               total={total.hair}
               path="hair"
@@ -128,7 +129,7 @@ function App() {
             />
           </div>
           <div className="list-section">
-            <h2>Mouth</h2>
+            <Title>Mouth</Title>
             <PartList
               total={total.mouth}
               path="mouths"
@@ -138,7 +139,7 @@ function App() {
             />
           </div>
           <div className="list-section">
-            <h2>Eyebrows</h2>
+            <Title>Eyebrows</Title>
             <PartList
               total={total.eyebrows}
               path="eyebrows"
@@ -147,7 +148,7 @@ function App() {
             />
           </div>
           <div className="list-section">
-            <h2>Glasses</h2>
+            <Title>Glasses</Title>
             <PartList
               total={total.glasses}
               path="accessories/glasses"
@@ -156,7 +157,7 @@ function App() {
             />
           </div>
           <div className="list-section">
-            <h2>Clothing (L1)</h2>
+            <Title>Clothing (L1)</Title>
             <PartList
               total={total.clothing1}
               path="clothes/layer_1"
@@ -165,7 +166,7 @@ function App() {
             />
           </div>
           <div className="list-section">
-            <h2>Clothing (L2)</h2>
+            <Title>Clothing (L2)</Title>
             <PartList
               total={total.clothing2}
               path="clothes/layer_2"
@@ -174,7 +175,7 @@ function App() {
             />
           </div>
           <div className="list-section">
-            <h2>Clothing (L3)</h2>
+            <Title>Clothing (L3)</Title>
             <PartList
               total={total.clothing3}
               path="clothes/layer_3"
